@@ -15,6 +15,6 @@ before_install:
   - ./tools/travis/setup.sh
 
 script:
-  - ant clean build
+  - ant clean build deploy run
 
 

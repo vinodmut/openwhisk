@@ -5,9 +5,14 @@
 SCRIPTDIR=$(cd $(dirname "$0") && pwd)
 ROOTDIR="$SCRIPTDIR/../.."
 
+: ${OPEN_WHISK_DB_USERNAME:=dummy}
+: ${OPEN_WHISK_DB_PASSWORD:=dummy}
+
 # Generate dummy cloudant env file.
-echo OPEN_WHISK_DB_USERNAME=dummy > "$ROOTDIR/cloudant-local.env"
-echo OPEN_WHISK_DB_PASSWORD=dummy >> "$ROOTDIR/cloudant-local.env"
+if [ ! -f "$ROOTDIR/cloudant-local.env" ]; then
+	echo OPEN_WHISK_DB_USERNAME=dummy > "$ROOTDIR/cloudant-local.env"
+	echo OPEN_WHISK_DB_PASSWORD=dummy >> "$ROOTDIR/cloudant-local.env"
+fi
 
 # Install necessary tools.
 (
