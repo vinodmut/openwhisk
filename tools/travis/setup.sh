@@ -13,6 +13,7 @@ if [ ! -f "$ROOTDIR/cloudant-local.env" ]; then
 	echo OPEN_WHISK_DB_USERNAME=dummy > "$ROOTDIR/cloudant-local.env"
 	echo OPEN_WHISK_DB_PASSWORD=dummy >> "$ROOTDIR/cloudant-local.env"
 fi
+cat "$ROOTDIR/cloudant-local.env" |head -1
 
 # Install necessary tools.
 (
