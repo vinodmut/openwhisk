@@ -5,6 +5,9 @@
 SCRIPTDIR=$(cd $(dirname "$0") && pwd)
 ROOTDIR="$SCRIPTDIR/../.."
 
+echo -- before
+docker version
+
 : ${OPEN_WHISK_DB_USERNAME:=dummy}
 : ${OPEN_WHISK_DB_PASSWORD:=dummy}
 
@@ -27,4 +30,5 @@ sudo gpasswd -a travis docker
 sudo service docker restart
 
 
-
+echo -- after
+docker version
