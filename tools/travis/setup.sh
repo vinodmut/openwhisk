@@ -28,7 +28,7 @@ cat "$ROOTDIR/cloudant-local.env" |head -1
 sudo -E bash -c 'echo '\''DOCKER_OPTS="-H tcp://0.0.0.0:4243 -H unix:///var/run/docker.sock --api-enable-cors --storage-driver=aufs"'\'' >> /etc/default/docker'
 sudo gpasswd -a travis docker
 sudo service docker restart
-
+sleep 20
 
 echo -- after
 docker version
